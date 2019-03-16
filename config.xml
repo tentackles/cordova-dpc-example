@@ -23,7 +23,7 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <engine name="android" spec="~7.1.4" />
-    <engine name="browser" spec="~5.0.4" />
     <plugin name="com.tentackles.plugins.DPC" spec="https://github.com/tentackles/cordova-plugin-DPC-android#dev" />
+    <engine name="android" spec="^7.1.4" />
+    <engine name="browser" spec="^5.0.4" />
 </widget>
