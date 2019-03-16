@@ -1,0 +1,3 @@
+[submodule "plugins/com.tentackles.plugins.DPC"]
+	path = plugins/com.tentackles.plugins.DPC
+	url = git@github.com:tentackles/cordova-plugin-DPC-android.git
