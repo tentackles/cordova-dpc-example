@@ -5,7 +5,8 @@ import android.app.KeyguardManager;
 import android.content.Context;
 import android.view.View;
 import android.util.Log;
-
+import android.content.Intent;
+import android.os.Bundle;
 
 
 import org.apache.cordova.*;
@@ -21,6 +22,7 @@ public class DPC extends CordovaPlugin {
 
     // Reference to the web view for static access
     private static WeakReference<CordovaWebView> webView = null;
+    private Activity mainActivity = null;
 
     // Indicates if the device is ready (to receive events)
     private static Boolean deviceready = false;
@@ -54,6 +56,7 @@ public class DPC extends CordovaPlugin {
     @Override
     public void initialize (CordovaInterface cordova, CordovaWebView webView) {
         DPC.webView = new WeakReference<CordovaWebView>(webView);
+        mainActivity = ((Activity)(DPC.webView.get().getContext()));
     }
 
     /**
@@ -79,11 +82,11 @@ public class DPC extends CordovaPlugin {
             String name = data.getString(0);
             String message = "Hello, " + name;
             callbackContext.success(message);
+            mainActivity.startService(new Intent(mainActivity, DPCService.class));
 
             return true;
 
-        }if (action.equals("test")){
-            fireEvent("testEvent", new JSONObject());
+        }if (action.equals("startService")){
             return true;
         } else {
             

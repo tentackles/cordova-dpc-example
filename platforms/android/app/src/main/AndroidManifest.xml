@@ -9,6 +9,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- defining the service class here -->
+        <service android:name="com.tentackles.plugin.DPCService" />
     </application>
     <uses-sdk android:targetSdkVersion="27" />
 </manifest>
